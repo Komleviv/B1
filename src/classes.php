@@ -43,13 +43,12 @@ class Generation {
 	}
 	
 	function fileWrite($file_num) {
-		$filename = __DIR__ . '/file'.$file_num.'.txt';
+		$filename = '../files/file'.$file_num.'.txt';
 		
 		$fh = fopen($filename, 'a'); 
 		
-		for ($i=0; $i<100; $i++) {
+		for ($i=0; $i<100000; $i++) {
 			$string = $this->stringGeneration();
-			
 			fwrite($fh, $string);
 		}
 		fclose($fh);
@@ -64,21 +63,33 @@ class Generation {
 }
 
 class Unification {
-	function unificationFiles($stringDelete) {
-		$save = fopen(__DIR__ . '/unification.txt', 'w');
-		$f1 = fopen(__DIR__ . '/file1.txt', 'r');
-		stream_copy_to_stream($f1, $save);
-		fclose($f1);
-		$f2 = fopen(__DIR__ . '/file2.txt', 'r');
-		stream_copy_to_stream($f2, $save);
-		fclose($f2);
+	function unificationFiles($text) {
+		$save = fopen('../files/unification.txt', 'w');
+		
+		$dir = opendir('../files');
+		$count = 0;
+		while (false !== ($file = readdir($dir))) {
+			if (strpos($file, 'file') !== false) {
+				$count++;
+				$f = fopen('../files/'.$file, 'r');
+				
+				
+				
+				stream_copy_to_stream($f, $save);
+				fclose($f);
+			}
+		}
+
 		fclose($save);
 	}
 	
-	function deleteString($stringDelete) {
-		
+	function checkString($line, $text) {
+		if (strpos($line, $text) !== false) {
+			return false;
+		}
+		  return true;
+		}
 	}
-}
 
 if (isset($_POST['action'])) {
 	switch ($_POST['action']) {
@@ -95,6 +106,8 @@ if (isset($_POST['action'])) {
 	}
 }
 
-$un = new Unification();
-$un->unificationFiles($_POST['text']);
+//$un = new Unification();
+//$un->unificationFiles();
+$gn = new Generation();
+$gn->filesGeneration()
 ?>

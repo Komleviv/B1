@@ -18,13 +18,13 @@
 		<div class="container">
 			<div>
 				<form action="index.php">
-					<button type="submit" class="button" name="auction" value="generate">Сгенерировать файлы</button>
+					<button type="submit" class="button" name="action" value="generate">Сгенерировать файлы</button>
 				</form>
 			</div>
 			<div>
 				<form action="index.php">
 					<input type="text" name="text" />
-					<button type="submit" class="button" name="auction" value="unification">Объединить файлы</button>
+					<button type="submit" class="button" name="action" value="unification">Объединить файлы</button>
 				</form>
 			</div>
 		</div>
