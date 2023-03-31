@@ -6,3 +6,12 @@
   background-color: #fff;
   padding: 15px;
 }
+
+p {
+  font: normal 12px "Manrope",Helvetica,Verdana;
+  color: #777;
+}
+
+.task {
+	margin-bottom: 30px;
+}
