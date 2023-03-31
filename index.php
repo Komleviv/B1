@@ -1,6 +1,3 @@
-<?php
-//include 'src/classes.php';
-?>
 <!DOCTYPE html>
 <html lang="ru-RU">
 	<head>
@@ -21,7 +18,7 @@
 				<p>Сгенерировать 100 текстовых файлов с заданной структурой, каждый из которых содержит 100 000 строк.</p>
 			</div>
 			<div class="task">
-				<form action="index.php">
+				<form method="post" action="index.php">
 					<button type="submit" class="button" name="action" value="generate">Сгенерировать файлы</button>
 				</form>
 			</div>
@@ -30,7 +27,7 @@
 				<p>Реализовать объединение файлов в один. При объединении должна быть возможность удалить из всех файлов строки с заданным сочетанием символов, например, «abc» с выводом информации о количестве удаленных строк</p>
 			</div>
 			<div class="task">
-				<form action="index.php">
+				<form method="post" action="src/classes.php">
 					<label for="text">Cимволы для удаления: </label>
 					<input type="text" name="text" id="text" />
 					<button type="submit" class="button" name="action" value="unification">Объединить файлы</button>
